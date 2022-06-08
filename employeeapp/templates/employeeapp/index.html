@@ -1,0 +1,40 @@
+{% extends "employeeapp/base.html" %}
+
+{% block content %}
+    <!-- employee lists -->
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Department</th>
+        <th scope="col">Role</th>
+        <th scope="col">Salary</th>
+        <th scope="col" colspan="2">Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+      <tr>
+        <th scope="row">{{employee.id}}</th>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.dept.name}}</td>
+        <td>{{employee.role.name}}</td>
+        <td>{{employee.salary}}</td>
+        <td><a href="/edit/{{employee.id}}">Edit</a></td>
+        <td><a href="/delete/{{employee.id}}">Delete</a></td>
+      </tr>
+        {% endfor %}
+      
+    </tbody>
+  </table>
+{% endblock content %}
+
+
+

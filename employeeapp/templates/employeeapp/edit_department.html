@@ -1,0 +1,14 @@
+{% extends 'employeeapp/base.html' %}
+
+{% block content %}
+
+<form class="form-inline" action="/add_department" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" id="inputPassword2" placeholder="Department Name" name="department" value="{{department.name}}">
+    </div>
+    <input type="submit" class="btn btn-primary mb-2" value="Edit Department">
+</form>
+
+{% endblock %}
